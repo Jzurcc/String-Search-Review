@@ -5,7 +5,7 @@ public class Naive {
 		int n = text.length();
 		int comparisons = 0;
 
-		for (int i = 0; i < n -  + 1; i++) {
+		for (int i = 0; i < n - m + 1; i++) {
 			boolean match = true;
 			for (int j = 0; j < m; j++) {
 				comparisons++;

@@ -11,10 +11,10 @@ class Naive
 		for (int i = 0; i < n - m + 1; i++)
 		{
 			bool match = true;
-			for (int j = 0; j < m; i++)
+			for (int j = 0; j < m; j++)
 			{
 				comparisons++;
-				if (text[i+j] == pattern[j])
+				if (text[i+j] != pattern[j])
 				{
 					match = false;
 				}
@@ -34,8 +34,8 @@ class Naive
 	static void Main()
 	{
 		// Example 1
-		string txt1 = "AABAACAADAABAABA";
-		string pat1 = "AABA";
+		string txt1 = "Hello world world";
+		string pat1 = "world";
 		Console.WriteLine("Example 1:");
 		Search(pat1, txt1);
 	}

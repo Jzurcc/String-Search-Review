@@ -38,3 +38,5 @@ def BNDM(pattern, text):
     runningTime = endTime - startTime
     throughput = n / runningTime if runningTime > 0 else float('inf')
     print(startTime)
+
+BNDM("aaba", "aabaacaadaabaaba")

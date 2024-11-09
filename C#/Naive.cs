@@ -29,6 +29,7 @@ class Naive
 		stopwatch.Stop();
 		double runningTime = stopwatch.Elapsed.TotalSeconds;
 		double throughput = n / runningTime;
+		Console.WriteLine(runningTime*1000);
 	}
 
 	static void Main()

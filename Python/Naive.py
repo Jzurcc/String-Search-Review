@@ -18,6 +18,6 @@ def naive(pattern, text):
 	endTime = time.time()
 	runningTime = endTime - startTime
 	throughput = n / runningTime if runningTime > 0 else float('inf')
-	print(comparisons)
+	print((endTime - startTime) * 1000)
 
 naive("aaba", "aabaacaadaabaaba")

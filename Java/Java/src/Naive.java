@@ -24,7 +24,7 @@ public class Naive {
 		double throughput = (double) n / runningTime;
 
 		System.out.println("Total comparisons: " + comparisons);
-		System.out.println("Running time: " + String.format("%.6f", runningTime) + " seconds");
+		System.out.println("Running time: " + String.format("%.6f", runningTime*1000) + " ms");
 		System.out.println("Throughput: " + String.format("%.2f", throughput) + " characters per second");
 	}
 

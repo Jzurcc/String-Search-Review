@@ -6,7 +6,7 @@
     <RootNamespace>C_</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>RK</StartupObject>
+    <StartupObject>BNDM</StartupObject>
   </PropertyGroup>
 
 </Project>

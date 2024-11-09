@@ -1,6 +1,6 @@
 using System.Diagnostics;
-public class BNDMAlgorithm {
-    static void BNDM(string pattern, string text) {
+class BNDM {
+    static void Search(string pattern, string text) {
         Stopwatch stopwatch = Stopwatch.StartNew();
         int m = pattern.Length;
         int n = text.Length;
@@ -15,7 +15,6 @@ public class BNDMAlgorithm {
         }
 
         int j = 0;
-        int matches = 0;
         while (j <= n - m) {
             int i = m - 1;
             int last = m;
@@ -28,7 +27,6 @@ public class BNDMAlgorithm {
                     if (i >= 0) {
                         last = i + 1;
                     } else {
-                        matches++;
                         Console.WriteLine($"Pattern found at index {j}");
                     }
                 }
@@ -40,11 +38,12 @@ public class BNDMAlgorithm {
         stopwatch.Stop();
         double runningTime = stopwatch.Elapsed.TotalSeconds;
         double throughput = n / runningTime;
+        Console.WriteLine(comparisons);
     }
 
     public static void Main(string[] args) {
-        string text = "hello world!";
-        string pattern = "world";
-        BNDM(pattern, text);
+        string text = "aabaacaadaabaaba";
+        string pattern = "aaba";
+        Search(pattern, text);
     }
 }

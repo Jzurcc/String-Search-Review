@@ -41,8 +41,8 @@ class BM {
 	}
 
 	public static void main(String[] args) {
-		char[] txt = "ABAAABCD".toCharArray();
-		char[] pat = "ABC".toCharArray();
+		char[] txt = "aabaacaadaabaaba".toCharArray();
+		char[] pat = "aaba".toCharArray();
 		search(txt, pat);
 	}
 }

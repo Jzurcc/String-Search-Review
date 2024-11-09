@@ -30,3 +30,6 @@ def BM(pattern, text):
 	endTime = time.time()
 	runningTime = endTime - startTime
 	throughput = n / runningTime if runningTime > 0 else float('inf')
+	print(comparisons)
+
+BM("aaba", "aabaacaadaabaaba")

@@ -19,7 +19,6 @@ public class RK {
         }
 
         for (int i = 0; i < n - m + 1; i++) {
-            comparisons++;
             if (p == t) {
                 int j;
                 for (j = 0; j < m; j++) {
@@ -43,11 +42,12 @@ public class RK {
         stopwatch.Stop();
         double runningTime = stopwatch.Elapsed.TotalSeconds;
         double throughput = n / runningTime;
+        Console.WriteLine(comparisons);
     }
 
     public static void Main() {
-        string text = "GEEKS FOR GEEKS";
-        string pattern = "GEEK";
+        string text = "aabaacaadaabaaba";
+        string pattern = "aaba";
         int q = 11;
         Search(pattern, text, q);
     }

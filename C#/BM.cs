@@ -41,11 +41,12 @@ public class BM {
 		stopwatch.Stop();
 		double runningTime = stopwatch.Elapsed.TotalSeconds;
 		double throughput = n / runningTime;
+		Console.WriteLine(comparisons);
 	}
 
 	public static void Main() {
-		char[] text = "ABAAABCD".ToCharArray();
-		char[] pattern = "ABC".ToCharArray();
+		char[] text = "aabaacaadaabaaba".ToCharArray();
+		char[] pattern = "aaba".ToCharArray();
 		Search(pattern, text);
 	}
 }

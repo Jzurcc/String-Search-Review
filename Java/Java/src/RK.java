@@ -20,7 +20,6 @@ public class RK {
         }
 
         for (int i = 0; i <= N - M; i++) {
-            comparisons++;
             if (p == t) {
                 int j;
                 for (j = 0; j < M; j++) {
@@ -50,10 +49,9 @@ public class RK {
     }
 
     public static void main(String[] args) {
-        String txt = "GEEKS FOR GEEKS";
-        String pat = "GEEK";
-
-        int q = 101;
+        String txt = "aabaacaadaabaaba";
+        String pat = "aaba";
+        int q = 11;
 
         search(pat, txt, q);
     }

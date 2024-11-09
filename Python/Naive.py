@@ -20,4 +20,4 @@ def naive(pattern, text):
 	throughput = n / runningTime if runningTime > 0 else float('inf')
 	print(comparisons)
 
-naive("world", "hello world world")
+naive("aaba", "aabaacaadaabaaba")

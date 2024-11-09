@@ -6,7 +6,7 @@
     <RootNamespace>C_</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>Naive</StartupObject>
+    <StartupObject>RK</StartupObject>
   </PropertyGroup>
 
 </Project>

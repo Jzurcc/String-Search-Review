@@ -43,7 +43,7 @@ class KMP {
 				i++;
 				j++;
 				if (j == m) {
-					Console.WriteLine($"Pattern found at index {i}");
+					Console.WriteLine($"Pattern found at index {i-j}");
 					j = lps[j - 1];
 				}
 			}

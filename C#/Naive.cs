@@ -34,8 +34,8 @@ class Naive
 	static void Main()
 	{
 		// Example 1
-		string txt1 = "Hello world world";
-		string pat1 = "world";
+		string txt1 = "aabaacaadaabaaba";
+		string pat1 = "aaba";
 		Console.WriteLine("Example 1:");
 		Search(pat1, txt1);
 	}

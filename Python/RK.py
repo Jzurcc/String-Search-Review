@@ -38,4 +38,4 @@ def RK(pattern, text, q): # q is any prime number
 	throughput = n / runningTime if runningTime > 0 else float('inf')
 	print(comparisons)
 
-RK("world", "hello world", 11)
+RK("aaba", "aabaacaadaabaaba", 11)

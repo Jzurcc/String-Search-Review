@@ -1,0 +1,4 @@
+{
+    "pasteAndIndent.selectAfter": true,
+    "dotnet.defaultSolution": "C#.sln"
+}

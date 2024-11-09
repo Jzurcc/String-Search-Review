@@ -10,14 +10,17 @@ class Naive
 
 		for (int i = 0; i < n - m + 1; i++)
 		{
-			int j = 0;
-			while (j < m && text[i+j] == pattern[j])
+			bool match = true;
+			for (int j = 0; j < m; i++)
 			{
-				j++;
 				comparisons++;
+				if (text[i+j] == pattern[j])
+				{
+					match = false;
+				}
 			}
 
-			if (j == m)
+			if (match) 
 			{
 				Console.WriteLine($"Pattern found at index {i}");
 			}

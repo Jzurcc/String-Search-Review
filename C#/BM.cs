@@ -30,9 +30,7 @@ public class BM {
 			}
 
 			comparisons++;
-
 			if (j < 0) {
-				comparisons++;
 				Console.WriteLine($"Pattern found at index {s}");
 				s += (s + m < n) ? m - badchar[text[s + m]] : 1;
 			} else {

@@ -23,10 +23,9 @@ def BM(pattern, text):
 		if j < 0:
 			print(f"Pattern found at index {i}")
 			i += (m-badChar[ord(text[i+m])] if i+m < n else 1)
-			comparisons += 1
 		else:
 			i += max(1, j-badChar[ord(text[i+j])])
-			comparisons += 1
+		comparisons += 1
 
 	endTime = time.time()
 	runningTime = endTime - startTime

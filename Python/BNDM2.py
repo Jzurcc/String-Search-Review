@@ -40,5 +40,3 @@ def BNDM(text, pattern):
             d = d << 1
         pos = pos + last
     return positions
-           
-print(BNDM("world", "hello world"))

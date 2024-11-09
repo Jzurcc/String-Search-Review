@@ -43,7 +43,7 @@ public class BNDMAlgorithm {
     }
 
     public static void Main(string[] args) {
-        string text = "hello world";
+        string text = "hello world!";
         string pattern = "world";
         BNDM(pattern, text);
     }

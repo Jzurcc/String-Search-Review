@@ -35,11 +35,5 @@ class Naive
 		string pat1 = "AABA";
 		Console.WriteLine("Example 1:");
 		Search(pat1, txt1);
-		
-		// Example 2
-		string txt2 = "agd";
-		string pat2 = "g";
-		Console.WriteLine("\nExample 2:");
-		Search(pat2, txt2);
 	}
 }

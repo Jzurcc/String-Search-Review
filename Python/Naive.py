@@ -11,7 +11,7 @@ def naive(pattern, text):
 		while j < m and text[i + j] == pattern[j]:
 			j += 1
 			comparisons += 1 
-		
+
 		if j == m:
 			print(f"Pattern found at index {i}")
 			comparisons += 1 
@@ -19,5 +19,3 @@ def naive(pattern, text):
 	endTime = time.time()
 	runningTime = endTime - startTime
 	throughput = n / runningTime if runningTime > 0 else float('inf')
-
-naive("world", "hello world")

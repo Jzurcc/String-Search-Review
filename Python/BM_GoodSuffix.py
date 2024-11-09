@@ -20,8 +20,9 @@ def preprocess_case2(shift, bpos, pat, m):
 			shift[i] = j
 		if i == j:
 			j = bpos[j]
-def search(text, pat):
 
+def search(text, pat):
+	
 	s = 0
 	m = len(pat)
 	n = len(text)

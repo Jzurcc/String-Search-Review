@@ -48,7 +48,7 @@ public class RK {
     public static void Main() {
         string text = "GEEKS FOR GEEKS";
         string pattern = "GEEK";
-        int q = 101;
+        int q = 11;
         Search(pattern, text, q);
     }
 }

@@ -11,7 +11,7 @@ def BM(pattern, text):
 	badChar = [-1]*a
 	for i in range(m):
 		badChar[ord(pattern[i])] = i
-	
+
 	# actual searching
 	i = 0
 	while(i <= n-m):
@@ -31,6 +31,3 @@ def BM(pattern, text):
 	endTime = time.time()
 	runningTime = endTime - startTime
 	throughput = n / runningTime if runningTime > 0 else float('inf')
-	print(comparisons)
-
-BM("world", "hello world")

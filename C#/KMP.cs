@@ -60,7 +60,7 @@ class KMP {
 	}
 
 	static void Main(string[] args) {
-		string text = "aabaacaadaabaaba";
+		string text = "aabaacaadaabaabaa";
 		string pattern = "aaba";
 		Search(pattern, text);
 	}

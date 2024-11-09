@@ -1,53 +1,53 @@
 using System;
 using System.Diagnostics;
 public class BM {
-    static int a = 256;
-    static int Max(int a, int b) { return (a > b) ? a : b; }
+	static int a = 256;
+	static int Max(int a, int b) { return (a > b) ? a : b; }
 
-    static void Search(char[] pattern, char[] text) {
-        Stopwatch stopwatch = Stopwatch.StartNew();
-        int m = pattern.Length;
-        int n = text.Length;
-        int[] badchar = new int[a];
-        int comparisons = 0;
+	static void Search(char[] pattern, char[] text) {
+		Stopwatch stopwatch = Stopwatch.StartNew();
+		int m = pattern.Length;
+		int n = text.Length;
+		int[] badchar = new int[a];
+		int comparisons = 0;
 
-        // preprocessing - Bad Character Heuristic
-        for (int i = 0; i < a; i++)
-            badchar[i] = -1;
+		// preprocessing - Bad Character Heuristic
+		for (int i = 0; i < a; i++)
+			badchar[i] = -1;
 
-        for (int i = 0; i < m; i++)
-            badchar[(int)pattern[i]] = i;
-        
-        // actual searching
-        int s = 0;
+		for (int i = 0; i < m; i++)
+			badchar[(int)pattern[i]] = i;
 
-        while (s <= (n - m)) {
-            int j = m - 1;
+		// actual searching
+		int s = 0;
 
-            while (j >= 0 && pattern[j] == text[s + j]) {
-                comparisons++;
-                j--;
-            }
+		while (s <= (n - m)) {
+			int j = m - 1;
 
-            comparisons++;
+			while (j >= 0 && pattern[j] == text[s + j]) {
+				comparisons++;
+				j--;
+			}
 
-            if (j < 0) {
-                comparisons++;
-                Console.WriteLine($"Pattern found at index {s}");
-                s += (s + m < n) ? m - badchar[text[s + m]] : 1;
-            } else {
-                s += Max(1, j - badchar[text[s + j]]);
-            }
-        }
+			comparisons++;
 
-        stopwatch.Stop();
-        double runningTime = stopwatch.Elapsed.TotalSeconds;
-        double throughput = n / runningTime;
-    }
+			if (j < 0) {
+				comparisons++;
+				Console.WriteLine($"Pattern found at index {s}");
+				s += (s + m < n) ? m - badchar[text[s + m]] : 1;
+			} else {
+				s += Max(1, j - badchar[text[s + j]]);
+			}
+		}
 
-    public static void Main() {
-        char[] text = "ABAAABCD".ToCharArray();
-        char[] pattern = "ABC".ToCharArray();
-        Search(pattern, text);
-    }
+		stopwatch.Stop();
+		double runningTime = stopwatch.Elapsed.TotalSeconds;
+		double throughput = n / runningTime;
+	}
+
+	public static void Main() {
+		char[] text = "ABAAABCD".ToCharArray();
+		char[] pattern = "ABC".ToCharArray();
+		Search(pattern, text);
+	}
 }

@@ -1,6 +1,5 @@
 import time
-# BNDM supports patterns of up to 32 characters only
-def BNDM(pattern, text):
+def BNDM(pattern, text): # Note: BNDM supports patterns of up to 32 characters only
 	startTime = time.time()
 	m = len(pattern)
 	n = len(text)
@@ -37,4 +36,3 @@ def BNDM(pattern, text):
 	endTime = time.time()
 	runningTime = endTime - startTime
 	throughput = n / runningTime if runningTime > 0 else float('inf')
-BNDM("world", "hello world")

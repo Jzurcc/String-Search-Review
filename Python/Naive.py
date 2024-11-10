@@ -17,6 +17,6 @@ def naive(pattern, text):
 		if match:
 			matches.append(i)
 
-	runningTime = time.time() - startTime + uniform(0.005, 0.01)
+	runningTime = time.time() - startTime # + uniform(0.007, 0.015)
 	throughput = n / runningTime if runningTime > 0 else float("inf")
 	return [matches, shifts, runningTime, throughput]

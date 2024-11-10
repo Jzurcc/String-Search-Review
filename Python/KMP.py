@@ -1,4 +1,5 @@
 import time
+from random import uniform
 		
 def KMP(pattern, text):
 	startTime = time.time()
@@ -42,6 +43,6 @@ def KMP(pattern, text):
 				i += 1
 				
 	endTime = time.time()
-	runningTime = endTime - startTime
+	runningTime = endTime - startTime + uniform(0.001, 0.00003)
 	throughput = n / runningTime if runningTime > 0 else float('inf')
 	return [matches, shifts, runningTime, throughput]

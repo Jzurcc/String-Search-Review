@@ -1,9 +1,9 @@
 class KMP {
-	public static void Search(String pattern, String txt) {
+	public static void Search(String pattern, String text) {
 		long startTime = System.nanoTime();
-		int n = txt.length();
+		int n = text.length();
 		int m = pattern.length();
-		int comparisons = 0;
+		int shifts = 0;
 		int[] lps = new int[m];
 
 		// preprocessing
@@ -29,8 +29,8 @@ class KMP {
 		i = 0;
 		int j = 0;
 		while (i < n) {
-			comparisons++;
-			if (txt.charAt(i) == pattern.charAt(j)) {
+			shifts++;
+			if (text.charAt(i) == pattern.charAt(j)) {
 				i++;
 				j++;
 				if (j == m) {
@@ -50,14 +50,17 @@ class KMP {
 		double runningTime = (endTime - startTime) / 1e9;
 		double throughput = (double) n / runningTime;
 
-		System.out.println("Total comparisons: " + comparisons);
+		System.out.println("Total shifts: " + shifts);
 		System.out.println("Running time: " + String.format("%.6f", runningTime) + " seconds");
 		System.out.println("Throughput: " + String.format("%.2f", throughput) + " characters per second");
 	}
 
 	public static void main(String[] args) {
-		String txt = "aabaacaadaabaaba";
+		String text = "aabaacaadaabaaba";
 		String pattern = "aaba";
-		Search(pattern, txt);
+		for (int i = 0; i < 10; i++) {
+			Search(pattern, text);
+		}
+		
 	}
 }

@@ -1,42 +1,52 @@
 public class Naive {
-	public static void Search(String pattern, String text) {
-		long startTime = System.nanoTime();
+	public static double Search(String pattern, String text) {
+		double startTime = System.nanoTime();
 		int m = pattern.length();
 		int n = text.length();
-		int comparisons = 0;
+		int shifts = 0;
 
 		for (int i = 0; i < n - m + 1; i++) {
 			boolean match = true;
 			for (int j = 0; j < m; j++) {
-				comparisons++;
+				shifts++;
 				if (text.charAt(i + j) != pattern.charAt(j)) {
 					match = false;
 				}
 			}
 
-			if (match) {
-				System.out.println("Pattern found at index " + i);
-			}
+			// if (match) {
+			// 	System.out.println("Pattern found at index " + i);
+			// }
 		}
 
-		long endTime = System.nanoTime();
-		double runningTime = (endTime - startTime) / 1e9;
+		double endTime = System.nanoTime();
+		double runningTime = (endTime - startTime) / 1000000;
+		// double runningTimeMs = runningTime ;
 		double throughput = (double) n / runningTime;
 
-		System.out.println("Total comparisons: " + comparisons);
-		System.out.println("Running time: " + String.format("%.6f", runningTime*1000) + " ms");
-		System.out.println("Throughput: " + String.format("%.2f", throughput) + " characters per second");
+		// System.out.println("Total shifts: " + shifts);
+		// System.out.println("Running time: " + String.format("%.6f", runningTimeMs) + " ms");
+		// System.out.println("Throughput: " + String.format("%.2f", throughput) + " characters per ms");
+		
+		if (throughput > 0)
+		{
+			return throughput;
+		}
+		else
+		{
+			return Search(pattern, text);
+		}
 	}
 
 	public static void main(String[] args) {
-		String txt1 = "Hello world";
-		String pat1 = "world";
-		System.out.println("Example 1:");
-		Search(pat1, txt1);
-
-		String txt2 = "agd";
-		String pat2 = "g";
-		System.out.println("\nExample 2:");
-		Search(pat2, txt2);
+		double sum = 0;
+		for (int i = 0; i < 100; i++) {
+			String txt1 = "aabaacaadaabaaba";
+			String pat1 = "aaba";
+			sum += Search(pat1, txt1);
+		}
+		System.out.println(sum/100);
+		
+		
 	}
 }

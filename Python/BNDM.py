@@ -3,7 +3,7 @@ import time
 def BNDM(pattern, text):
     n = len(text)
     m = len(pattern)
-    comparisons = 0
+    shifts = 0
     startTime = time.time()
 
     # preprocessing
@@ -20,7 +20,7 @@ def BNDM(pattern, text):
         last = m 
         d = ~0
         while (d != 0 and j >= 0):
-            comparisons += 1
+            shifts += 1
             if text[i+j] in B: 
                 d = d & B[text[i+j]]    
             else:

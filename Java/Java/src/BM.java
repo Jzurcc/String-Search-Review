@@ -7,22 +7,22 @@ class BM {
 		int m = pat.length;
 		int n = txt.length;
 		int a = 256;
-		int comparisons = 0;
+		int shifts = 0;
 		// preprocessing
 		int[] badchar = new int[a];
 		Arrays.fill(badchar, -1);
 		for (int i = 0; i < m; i++)
 			badchar[pat[i]] = i;
-		
+
 		// actual searching
 		int i = 0;
 		while (i <= (n - m)) {
 			int j = m - 1;
 			while (j >= 0 && pat[j] == txt[i + j]) {
-				comparisons++;
+				shifts++;
 				j--;
 			}
-			comparisons++;
+			shifts++;
 			if (j < 0) {
 				System.out.println("Pattern found at index " + (i));
 				i += (i + m < n) ? m - badchar[txt[i + m]] : 1;
@@ -35,7 +35,7 @@ class BM {
 		double runningTime = (endTime - startTime) / 1e9;
 		double throughput = (double) n / runningTime;
 
-		System.out.println("Total comparisons: " + comparisons);
+		System.out.println("Total shifts: " + shifts);
 		System.out.println("Running time: " + String.format("%.6f", runningTime) + " seconds");
 		System.out.println("Throughput: " + String.format("%.2f", throughput) + " characters per second");
 	}

@@ -4,20 +4,20 @@ def naive(pattern, text):
 	startTime = time.time()
 	m = len(pattern)
 	n = len(text)
-	comparisons = 0
+	shifts = 0
 
 	for i in range(n - m + 1):
+		time.sleep(0.001)
 		match = True
 		for j in range(m):
-			comparisons += 1
+			shifts += 1
 			if text[i + j] != pattern[j]:
 				match = False
-		if match:
-			print(f"Pattern found at index {i}")
+		# if match:
+			# print(f"Pattern found at index {i}")
 
-	endTime = time.time()
-	runningTime = endTime - startTime
-	throughput = n / runningTime if runningTime > 0 else float('inf')
-	print((endTime - startTime) * 1000)
-
-naive("aaba", "aabaacaadaabaaba")
+	runningTime = time.time() - startTime
+	throughput = shifts / runningTime if runningTime > 0 else float("inf")
+	print(f"{shifts} / {runningTime} = {throughput}")
+for i in range(10):
+	naive("aaba", "aabaacaadaabaaba")

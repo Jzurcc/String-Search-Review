@@ -7,7 +7,7 @@ public class RK {
         int t = 0;
         int h = 1;
         int a = 256;
-        int comparisons = 0;
+        int shifts = 0;
 
         long startTime = System.nanoTime();
 
@@ -23,7 +23,7 @@ public class RK {
             if (p == t) {
                 int j;
                 for (j = 0; j < M; j++) {
-                    comparisons++;
+                    shifts++;
                     if (txt.charAt(i + j) != pat.charAt(j))
                         break;
                 }
@@ -43,7 +43,7 @@ public class RK {
         double runningTime = (endTime - startTime) / 1e9;
         double throughput = (double) N / runningTime;
 
-        System.out.println("Total comparisons: " + comparisons);
+        System.out.println("Total shifts: " + shifts);
         System.out.println("Running time: " + String.format("%.6f", runningTime) + " seconds");
         System.out.println("Throughput: " + String.format("%.2f", throughput) + " characters per second");
     }

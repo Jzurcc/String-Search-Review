@@ -7,7 +7,7 @@ def RK(pattern, text, q): # q is any prime number
 	i = j = p = t = 0
 	h = 1
 	a = 256
-	comparisons = 0
+	shifts = 0
 
 	# preprocessing
 	for i in range(m-1):
@@ -21,13 +21,13 @@ def RK(pattern, text, q): # q is any prime number
 	for i in range(n - m + 1):
 		if p == t:
 			for j in range(m):
-				comparisons += 1
+				shifts += 1
 				if text[i + j] != pattern[j]:
 					break
 				else:
 					j += 1
-			if j == m:
-				print(f"Pattern found at index {i}")
+			# if j == m:
+				# print(f"Pattern found at index {i}")
 		if i < n - m:
 			t = (a * (t - ord(text[i]) * h) + ord(text[i + m])) % q
 			if t < 0:
@@ -36,6 +36,7 @@ def RK(pattern, text, q): # q is any prime number
 	endTime = time.time()
 	runningTime = endTime - startTime
 	throughput = n / runningTime if runningTime > 0 else float('inf')
-	print(comparisons)
+	print(throughput)
 
-RK("aaba", "aabaacaadaabaaba", 11)
+for i in range(10):
+	RK("aaba", "aabaacaadaabaabaaabaacaadaabaabaaabaaabaacaadaabaaaabaabaaabaacaadaabaabaaacaaaabaaaacaadaabaabacaadaabaabaaabaacaadaabaaba", 11)

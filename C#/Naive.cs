@@ -6,14 +6,14 @@ class Naive
 		Stopwatch stopwatch = Stopwatch.StartNew();
 		int m = pattern.Length;
 		int n = text.Length;
-		double  comparisons = 0;
+		double  shifts = 0;
 
 		for (int i = 0; i < n - m + 1; i++)
 		{
 			bool match = true;
 			for (int j = 0; j < m; j++)
 			{
-				comparisons++;
+				shifts++;
 				if (text[i+j] != pattern[j])
 				{
 					match = false;
@@ -22,22 +22,26 @@ class Naive
 
 			if (match) 
 			{
-				Console.WriteLine($"Pattern found at index {i}");
+				// Console.WriteLine($"Pattern found at index {i}");
 			}
 		}
 
 		stopwatch.Stop();
-		double runningTime = stopwatch.Elapsed.TotalSeconds;
+		double runningTime = stopwatch.Elapsed.TotalMilliseconds;
 		double throughput = n / runningTime;
-		Console.WriteLine(runningTime*1000);
+		Console.WriteLine(runningTime);
+		Console.WriteLine(throughput);
 	}
 
 	static void Main()
 	{
 		// Example 1
-		string txt1 = "aabaacaadaabaaba";
+		string txt1 = "aabaacaadaabaabaaaaasdsadaaaaaaaaa";
 		string pat1 = "aaba";
-		Console.WriteLine("Example 1:");
-		Search(pat1, txt1);
+		for (int i = 0; i < 1; i++) 
+		{
+			Search(pat1, txt1);
+		}
+		
 	}
 }

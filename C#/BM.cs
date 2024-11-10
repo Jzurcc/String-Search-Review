@@ -9,7 +9,7 @@ public class BM {
 		int m = pattern.Length;
 		int n = text.Length;
 		int[] badchar = new int[a];
-		int comparisons = 0;
+		int shifts = 0;
 
 		// preprocessing - Bad Character Heuristic
 		for (int i = 0; i < a; i++)
@@ -25,11 +25,11 @@ public class BM {
 			int j = m - 1;
 
 			while (j >= 0 && pattern[j] == text[s + j]) {
-				comparisons++;
+				shifts++;
 				j--;
 			}
 
-			comparisons++;
+			shifts++;
 			if (j < 0) {
 				Console.WriteLine($"Pattern found at index {s}");
 				s += (s + m < n) ? m - badchar[text[s + m]] : 1;
@@ -41,7 +41,7 @@ public class BM {
 		stopwatch.Stop();
 		double runningTime = stopwatch.Elapsed.TotalSeconds;
 		double throughput = n / runningTime;
-		Console.WriteLine(comparisons);
+		Console.WriteLine(shifts);
 	}
 
 	public static void Main() {

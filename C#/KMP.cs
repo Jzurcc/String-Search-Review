@@ -4,7 +4,7 @@ class KMP {
 	static void Search(string pattern, string text) {
 		int n = text.Length;
 		int m = pattern.Length;
-		int comparisons = 0;
+		int shifts = 0;
 
 		int[] lps = new int[m];
 		List<int> res = [];
@@ -17,7 +17,7 @@ class KMP {
 
 		int i = 1;
 		while (i < pattern.Length) {
-			comparisons++;
+			shifts++;
 			if (pattern[i] == pattern[len]) {
 				len++;
 				lps[i] = len;
@@ -57,6 +57,7 @@ class KMP {
 		stopwatch.Stop();
 		double runningTime = stopwatch.Elapsed.TotalSeconds;
 		double throughput = n / runningTime;
+		Console.WriteLine(runningTime);
 	}
 
 	static void Main(string[] args) {

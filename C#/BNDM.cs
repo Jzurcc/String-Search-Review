@@ -5,7 +5,7 @@ class BNDM {
         int m = pattern.Length;
         int n = text.Length;
         int a = 256;
-        int comparisons = 0;
+        int shifts = 0;
 
         int[] B = new int[a];
         int s = 1;
@@ -20,7 +20,7 @@ class BNDM {
             int last = m;
             int d = ~0;
             while (i >= 0 && d != 0) {
-                comparisons++;
+                shifts++;
                 d &= B[(int)text[j + i]];
                 i--;
                 if (d != 0) {
@@ -38,7 +38,7 @@ class BNDM {
         stopwatch.Stop();
         double runningTime = stopwatch.Elapsed.TotalSeconds;
         double throughput = n / runningTime;
-        Console.WriteLine(comparisons);
+        Console.WriteLine(shifts);
     }
 
     public static void Main(string[] args) {

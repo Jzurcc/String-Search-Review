@@ -14,17 +14,16 @@ public class Naive {
 				}
 			}
 
-			// if (match) {
-			// 	System.out.println("Pattern found at index " + i);
-			// }
+			if (match) {
+				System.out.println("Pattern found at index " + i);
+			}
 		}
 
 		double endTime = System.nanoTime();
 		double runningTime = (endTime - startTime) / 1000000;
-		// double runningTimeMs = runningTime ;
 		double throughput = (double) n / runningTime;
 
-		// System.out.println("Total shifts: " + shifts);
+		System.out.println("Total shifts: " + shifts);
 		System.out.println("Running time: " + String.format("%.6f", runningTime) + " ms");
 		System.out.println("Throughput: " + String.format("%.2f", throughput) + " characters/ms");
 		if (runningTime > 0)

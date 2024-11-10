@@ -22,7 +22,7 @@ def preprocess_case2(shift, bpos, pat, m):
 			j = bpos[j]
 
 def search(text, pat):
-	
+
 	s = 0
 	m = len(pat)
 	n = len(text)
@@ -37,7 +37,7 @@ def search(text, pat):
 		while j >= 0 and pat[j] == text[s + j]:
 			j -= 1
 		if j < 0:
-			print("pattern occurs at shift = %d" % s)
+			# print("pattern occurs at shift = %d" % s)
 			s += shift[0]
 		else:
 			s += shift[j + 1]

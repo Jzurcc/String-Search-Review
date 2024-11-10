@@ -25,12 +25,12 @@ public class Naive {
 		double throughput = (double) n / runningTime;
 
 		// System.out.println("Total shifts: " + shifts);
-		// System.out.println("Running time: " + String.format("%.6f", runningTimeMs) + " ms");
-		// System.out.println("Throughput: " + String.format("%.2f", throughput) + " characters per ms");
+		System.out.println("Running time: " + String.format("%.6f", runningTime) + " ms");
+		System.out.println("Throughput: " + String.format("%.2f", throughput) + " characters/ms");
 		
-		if (throughput > 0)
+		if (runningTime > 0)
 		{
-			return throughput;
+			return runningTime;
 		}
 		else
 		{

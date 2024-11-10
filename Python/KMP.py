@@ -5,6 +5,7 @@ def KMP(pattern, text):
 	m = len(pattern)
 	n = len(text)
 	shifts = 0
+	matches = []
 
 	# preprocessing - Calculating LPS
 	length = 0
@@ -31,7 +32,8 @@ def KMP(pattern, text):
 			j += 1
 
 		if j == m:
-			print(f"Pattern found at index {i-j}")
+			# print(f"Pattern found at index {i-j}")
+			matches.append(i-j)
 			j = LPS[j-1]
 		elif i < n and pattern[j] != text[i]:
 			if j != 0:
@@ -42,6 +44,4 @@ def KMP(pattern, text):
 	endTime = time.time()
 	runningTime = endTime - startTime
 	throughput = n / runningTime if runningTime > 0 else float('inf')
-	print(runningTime)
-
-KMP("aaba", "aabaacaadaabaaba")
+	return [matches, shifts, runningTime, throughput]

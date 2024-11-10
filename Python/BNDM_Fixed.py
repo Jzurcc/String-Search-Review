@@ -5,6 +5,7 @@ def BNDM(pattern, text): # Note: BNDM supports patterns of up to 32 characters o
 	n = len(text)
 	a = 256  
 	shifts = 0
+	matches = []
 
 	# Preprocessing phase
 	B = [0] * a
@@ -26,7 +27,8 @@ def BNDM(pattern, text): # Note: BNDM supports patterns of up to 32 characters o
 			if d != 0:
 				if k >= 0:
 					last = k + 1
-				# else:
+				else:
+					matches.append(i)
 					# print(f"Pattern found at index {i}")
 			d <<= 1
 		i += last
@@ -34,7 +36,4 @@ def BNDM(pattern, text): # Note: BNDM supports patterns of up to 32 characters o
 	endTime = time.time()
 	runningTime = endTime - startTime
 	throughput = n / runningTime if runningTime > 0 else float('inf')
-	print(runningTime)
-
-for i in range(100):
-	BNDM("aaba", "aabaacaadaabaaba")
+	return [matches, shifts, runningTime, throughput]

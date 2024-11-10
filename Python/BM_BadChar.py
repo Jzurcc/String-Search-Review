@@ -5,6 +5,7 @@ def BM(pattern, text):
 	m = len(pattern)
 	n = len(text)
 	shifts = 0
+	matches = []	
 	a = 256 # ASCII alphabet size
 
 	# preprocessing - Bad Character Heuristic
@@ -21,7 +22,8 @@ def BM(pattern, text):
 			shifts += 1
 			
 		if j < 0:
-			print(f"Pattern found at index {i}")
+			matches.append(i)
+			# print(f"Pattern found at index {i}")
 			i += (m-badChar[ord(text[i+m])] if i+m < n else 1)
 		else:
 			i += max(1, j-badChar[ord(text[i+j])])
@@ -30,6 +32,4 @@ def BM(pattern, text):
 	endTime = time.time()
 	runningTime = endTime - startTime
 	throughput = n / runningTime if runningTime > 0 else float('inf')
-	print(shifts)
-
-BM("aaba", "aabaacaadaabaaba")
+	return [matches, shifts, runningTime, throughput]

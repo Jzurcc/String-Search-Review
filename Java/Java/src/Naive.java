@@ -27,7 +27,6 @@ public class Naive {
 		// System.out.println("Total shifts: " + shifts);
 		System.out.println("Running time: " + String.format("%.6f", runningTime) + " ms");
 		System.out.println("Throughput: " + String.format("%.2f", throughput) + " characters/ms");
-		
 		if (runningTime > 0)
 		{
 			return runningTime;

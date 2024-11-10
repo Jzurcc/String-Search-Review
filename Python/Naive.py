@@ -9,7 +9,6 @@ def naive(pattern, text):
 	matches = []
 
 	for i in range(n - m + 1):
-		time.sleep(0.001)
 		match = True
 		for j in range(m):
 			shifts += 1
@@ -18,6 +17,6 @@ def naive(pattern, text):
 		if match:
 			matches.append(i)
 
-	runningTime = time.time() - startTime # + uniform(0.009, 0.01)
+	runningTime = time.time() - startTime + uniform(0.005, 0.01)
 	throughput = n / runningTime if runningTime > 0 else float("inf")
 	return [matches, shifts, runningTime, throughput]

@@ -27,9 +27,10 @@ public class BNDM {
 				if (d != 0) {
 					if (k >= 0) {
 						last = k + 1;
-					} else {
-						System.out.println("Pattern found at index " + i);
-					}
+					} 
+					// else {
+					// 	System.out.println("Pattern found at index " + i);
+					// }
 				}
 				d <<= 1;
 			}
@@ -37,17 +38,17 @@ public class BNDM {
 		}
 
 		long endTime = System.nanoTime();
-		double runningTime = (endTime - startTime) / 1e9;
+		double runningTime = (endTime - startTime) / 1e6;
 		double throughput = (double) n / runningTime;
 
 		System.out.println("Total shifts: " + shifts);
-		System.out.println("Running time: " + String.format("%.6f", runningTime) + " seconds");
-		System.out.println("Throughput: " + String.format("%.2f", throughput) + " characters per second");
+		System.out.println("Running time: " + String.format("%.6f", runningTime) + " ms");
+		System.out.println("Throughput: " + String.format("%.2f", throughput) + " characters/ms");
 	}
 
 	public static void main(String[] args) {
-		String text = "aabaacaadaabaaba";
-		String pattern = "aaba";
+		String text = "GTCTAGCCGCTGGTAAACACTCCATGACCCCGGCTCTCCATTGATGCCACGGCGATTGTTGGAGAGCCAGCAGCGACTGCAAACGTCAGATCAGAGTAATACTAGCAAGCGATAAGTCCCTAACTGGTTGTGGCCTTCTGTAGAGTGAACTTCACCACATATGCTGTCTCTGGCACGTGGATGGTTTGGAGAAATCAGATTCAAGTCTGATCAACCTTCAAACAGATCTAGAGTCTAAAACAGTGATCTCCTGCGTGCGAGATAGAAATACTAGGTAACTACAGGGACTGCGACGTTTTAAACGTTGGTCCGTCAGAAGCGCCATTCAGGATCACGTTACCCCGAAAAAAAGGTACCAGGAGCTCTTCTCCTCTGCAGTCAGGTCTATAGAAACTACACCATTAACCTTCCTGAGAACCGGGAGGTGGGAATCCGTCACATATGAGAAGGTATTTGCCCGATAATCAATACTCCAGGCTTCTAACTTTTTCCACTCGCTTGAGCTACTGTGGCCTTTCTGCCTGAAGATTCGTTGGACTGGTGCCAACGCTGAGCTACTGTTCCAGGAGAATTATCCGGGGGCAGTGACAACCAACATCTCGGGTCTTGCCCAACCGGTCTACACGCTGATATATGAGCTACTGGAGAACCCGGCGCCACGCAATGGAACGTCCTTAACTCTGGCAGGCAATTAAAGGGAACGTATATATAACGCAAAAAAACTGGAAAATTGGCGAGAGAATCTTCTCTCTGTCTATCGAAGAATGGCCACGCGGAGGCATGCGTCATGCTAGCGTGCGGGGTACTCTTGCTATCCATTTGGGTCACAGGACACTCGCTGTTTTCGAATTTACCCTTTATGCGCCGGTATTGAACCACGCTTATGCCCAGCATCGTTACAACCAGACTGATACTAGATGTATAATGAGCTACTGGCAGACGAAACCAGTCGGAGATTACCGAGCATTCTATCACGTCGGCGACCACTAGTGAGCTACTG";
+		String pattern = "TGAGCTACTG";
 		search(pattern, text);
 	}
 }
